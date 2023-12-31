@@ -9,6 +9,7 @@ class ExpenseItem extends StatelessWidget {
   Widget build(context) {
     //
     return Card(
+      color: Color.fromARGB(255, 74, 195, 255),
       child: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 20,
@@ -27,9 +28,9 @@ class ExpenseItem extends StatelessWidget {
                 const Spacer(),
                 Row(
                   children: [
-                    const Icon(Icons.alarm),
+                    Icon(categoryIcons[expense.category]),
                     const SizedBox(width: 4),
-                    Text(expense.date.toString()),
+                    Text(expense.formattedDate),
                   ],
                 )
               ],

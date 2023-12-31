@@ -25,9 +25,48 @@ class _ExpensesState extends State<Expenses> {
       category: Category.leisure,
     ),
   ];
+
+  void _openAddExpenseOverlay() {
+    showModalBottomSheet(
+      context: context,
+      builder: (ctx) {
+        return Column(
+          children: [
+            const Text('Add Expense'),
+            const TextField(
+              decoration: InputDecoration(labelText: 'Title'),
+            ),
+            const TextField(
+              decoration: InputDecoration(labelText: 'Amount'),
+            ),
+            const TextField(
+              decoration: InputDecoration(labelText: 'Date'),
+            ),
+            const TextField(
+              decoration: InputDecoration(labelText: 'Category'),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('Add Expense'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Expenses'),
+        actions: [
+          IconButton(
+            onPressed: _openAddExpenseOverlay,
+            icon: const Icon(Icons.add),
+          ),
+        ],
+      ),
       body: Column(
         children: [
           const Text('The chart'),
